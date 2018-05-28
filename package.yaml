@@ -1,0 +1,56 @@
+name:                h4cb
+version:             0.1.0.0
+github:              "RaoulHC/h4cb"
+license:             BSD3
+author:              "Raoul Hidalgo Charman"
+maintainer:          "raoul.hidalgo.charman@gmail.com"
+copyright:           "2018 Raoul Hidalgo Charman"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/RaoulHC/h4cb#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- wreq
+- lens
+- bytestring
+- aeson
+- scientific
+- lens-aeson
+- text
+- raw-strings-qq
+
+library:
+  source-dirs: src
+
+executables:
+  h4cb-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - h4cb
+
+tests:
+  h4cb-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - h4cb
